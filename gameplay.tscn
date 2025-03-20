@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dabcmqvvcej4o"]
+
+[ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4psk"]
+
+[node name="World" type="Node3D"]
+
+[node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
+
+[node name="Wall with the mouth?" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.165, 0, 0, 0, 7.085, 0, 0, 0, 1, -0.037673, 0.12402, 4.14061)
+mesh = SubResource("BoxMesh_n4psk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 1.18404e-08, 0.990786, 0.135439, -8.66172e-08, 0.135439, -0.990786, 0, 1, -2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69589, -3.11118)
