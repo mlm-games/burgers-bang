@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=4 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
+[ext_resource type="Script" uid="uid://3npklxk4k22d" path="res://burger.gd" id="2_ej4tk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n4psk"]
 
 [node name="World" type="Node3D"]
 
 [node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
+script = ExtResource("2_ej4tk")
 
 [node name="Wall with the mouth?" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.165, 0, 0, 0, 7.085, 0, 0, 0, 1, -0.037673, 0.12402, 4.14061)
