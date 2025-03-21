@@ -1,1 +1,1 @@
-class_name Burger extends MeshInstance3D
+class_name Burger extends RigidBody3D

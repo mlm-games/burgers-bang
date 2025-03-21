@@ -1,7 +1,8 @@
 extends Node3D
 
+
 var charging_throw: bool = false
-var throw_power : float = 0
+var throw_power : float = 1
 var burgers_thrown_count : int = 0
 
 @onready var current_burger: Burger = $InitialBurger
@@ -28,7 +29,7 @@ func _input(event: InputEvent) -> void:
 			#current_burger.look_at((dir_ray.position - current_burger.global_transform.origin).normalized(), Vector3.UP)
 		
 func throw_burger() -> void:
-	current_burger.global_transform.origin += Vector3.ONE #HACK: test
+	current_burger.apply_central_impulse(current_burger.global_transform.basis.z * throw_power)
 	#TODO: set burger collision layer.
 	burgers_thrown_count += 1
 	%BurgersThrownCountLabel.text = tr("Burgers thrown count: ") + str(burgers_thrown_count)

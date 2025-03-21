@@ -10,6 +10,8 @@
 script = ExtResource("1_oe8ih")
 
 [node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
+mass = 0.25
+gravity_scale = 0.1
 script = ExtResource("2_ej4tk")
 
 [node name="Wall with the mouth?" type="MeshInstance3D" parent="."]
