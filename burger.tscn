@@ -5,6 +5,8 @@
 [sub_resource type="SphereMesh" id="SphereMesh_nkn5y"]
 
 [node name="Burger" type="RigidBody3D" groups=["Burgers"]]
+mass = 0.25
+gravity_scale = 0.6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_s1mr0")

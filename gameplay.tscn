@@ -1,17 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=8 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
 [ext_resource type="Script" uid="uid://3npklxk4k22d" path="res://burger.gd" id="2_ej4tk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oe8ih"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_xuee5"]
+sky_material = SubResource("ProceduralSkyMaterial_oe8ih")
+
+[sub_resource type="Environment" id="Environment_smepj"]
+background_mode = 2
+sky = SubResource("Sky_xuee5")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_n4psk"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_oe8ih")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_smepj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
 [node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
-mass = 0.25
-gravity_scale = 0.1
 script = ExtResource("2_ej4tk")
 
 [node name="Wall with the mouth?" type="MeshInstance3D" parent="."]
@@ -23,6 +41,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 1.18404e-08, 0.990786, 0.135439, -8.
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69589, -3.11118)
+visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -38,3 +57,5 @@ text = "MENU_LABEL_BURGERS_THROWN_COUNT: 0"
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
+
+[connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
