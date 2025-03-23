@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=9 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
 [ext_resource type="Script" uid="uid://3npklxk4k22d" path="res://burger.gd" id="2_ej4tk"]
+[ext_resource type="PackedScene" uid="uid://6yijrlcywfqj" path="res://mouth.tscn" id="4_xuee5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oe8ih"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -12,7 +13,9 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_oe8ih")
 
 [sub_resource type="Environment" id="Environment_smepj"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.242267, 0.138, 0.92, 1)
+background_energy_multiplier = 0.3
 sky = SubResource("Sky_xuee5")
 tonemap_mode = 2
 glow_enabled = true
@@ -36,6 +39,16 @@ script = ExtResource("2_ej4tk")
 transform = Transform3D(5.165, 0, 0, 0, 7.085, 0, 0, 0, 1, -0.037673, 0.12402, 4.14061)
 mesh = SubResource("BoxMesh_n4psk")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall with the mouth?"]
+use_collision = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.165, 0, 0, 0, -3.09695e-07, -1, 0, 7.085, -4.37114e-08, -0.037673, -1.0536, -1.35902)
+mesh = SubResource("BoxMesh_n4psk")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+use_collision = true
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 1.18404e-08, 0.990786, 0.135439, -8.66172e-08, 0.135439, -0.990786, 0, 1, -2)
 
@@ -58,4 +71,8 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
+[node name="Mouth" parent="." instance=ExtResource("4_xuee5")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.037673, 2.15011, 3.36553)
+
 [connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
+[connection signal="body_entered" from="Mouth" to="." method="_on_mouth_body_entered"]
