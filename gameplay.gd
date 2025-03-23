@@ -60,10 +60,20 @@ func _input(event: InputEvent) -> void:
 		
 func throw_burger() -> void:
 	current_burger.gravity_scale = 1
-	print(rad_to_deg(Vector2(DisplayServer.screen_get_size().x/2, 0).angle_to(DisplayServer.mouse_get_position())) - 15)
-	current_burger.rotate_y((Vector2(DisplayServer.screen_get_size().x/2, 0).angle_to(DisplayServer.mouse_get_position())) )
-	current_burger.apply_central_impulse(current_burger.global_transform.basis.z * throw_power)
-	current_burger.apply_central_impulse(current_burger.global_transform.basis.y * throw_power * 2)
+	
+	var screen_center = Vector2(DisplayServer.screen_get_size().x/2, DisplayServer.screen_get_size().y/2)
+	var mouse_pos = DisplayServer.mouse_get_position()
+	
+	var direction = (mouse_pos - Vector2i(screen_center))
+	
+	var angle = atan2(direction.x, -direction.y)  # Negative y because forward is -z in godot
+	
+	#if angle > -PI/2 and angle < PI/2: angle += 3*PI/2
+	current_burger.rotation.y = angle
+	
+	current_burger.apply_central_impulse(-current_burger.global_transform.basis.z * throw_power)
+	current_burger.apply_central_impulse(current_burger.global_transform.basis.y * throw_power * 2)  #HACK: Add some upward force temporarily. Implement it differently
+	
 	#TODO: Try to get the ball to apply the x-axis rotation for the force being applied based on the direction of the mouse pointer.
 	#TODO: set burger collision layer.
 	
