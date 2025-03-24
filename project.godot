@@ -26,3 +26,7 @@ enabled=PackedStringArray("res://addons/ridiculous_coding/plugin.cfg")
 [global_group]
 
 Burgers=""
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
