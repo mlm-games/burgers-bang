@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://6yijrlcywfqj"]
 
 [ext_resource type="Script" uid="uid://bamkjcwt6ycm" path="res://mouth.gd" id="1_hqyff"]
+[ext_resource type="PackedScene" uid="uid://cgfsk20vwcpua" path="res://assets/mouthportal.blend" id="2_rm3cv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rm3cv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yuly8"]
+size = Vector3(0.749023, 0.617249, 0.709106)
 
 [node name="Mouth" type="Area3D"]
 script = ExtResource("1_hqyff")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125488, -0.191376, -0.145447)
 shape = SubResource("BoxShape3D_rm3cv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_yuly8")
+[node name="mouthportal" parent="." instance=ExtResource("2_rm3cv")]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, 0, 0)

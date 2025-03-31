@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=11 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
 [ext_resource type="Script" uid="uid://3npklxk4k22d" path="res://burger.gd" id="2_ej4tk"]
 [ext_resource type="PackedScene" uid="uid://6yijrlcywfqj" path="res://mouth.tscn" id="4_xuee5"]
+[ext_resource type="AudioStream" uid="uid://dpucavn34g07v" path="res://assets/positive.ogg" id="5_smepj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oe8ih"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -13,9 +14,7 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_oe8ih")
 
 [sub_resource type="Environment" id="Environment_smepj"]
-background_mode = 1
-background_color = Color(0.242267, 0.138, 0.92, 1)
-background_energy_multiplier = 0.3
+background_mode = 2
 sky = SubResource("Sky_xuee5")
 tonemap_mode = 2
 glow_enabled = true
@@ -38,6 +37,7 @@ environment = SubResource("Environment_smepj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.799333, 1, 0.72, 1)
 shadow_enabled = true
 
 [node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
@@ -74,12 +74,20 @@ offset_right = 719.0
 offset_bottom = 64.0
 text = "MENU_LABEL_BURGERS_THROWN_COUNT: 0"
 
+[node name="BurgersLandedCount" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 391.0
+offset_top = 67.0
+offset_right = 732.0
+offset_bottom = 90.0
+text = "MENU_LABEL_BURGERS_THROWN_COUNT: 0"
+
 [node name="BurgerRespawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="Mouth" parent="." instance=ExtResource("4_xuee5")]
+[node name="MouthPortal" parent="." instance=ExtResource("4_xuee5")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.037673, 2.15011, 3.84727)
 
@@ -87,7 +95,11 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.037
 curve = SubResource("Curve3D_xuee5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="FillersSpawnPath"]
-transform = Transform3D(-2.98023e-08, 0.99986, -0.0167073, 0.0298124, -0.0166999, -0.999414, -0.999555, -0.000498116, -0.0298082, 3.58417, -0.00377023, 2.18763)
+transform = Transform3D(2.98023e-08, 0.99986, -0.0167101, 0.0298109, -0.0167027, -0.999414, -0.999554, -0.000498146, -0.0298067, 3.58417, -0.00377023, 2.18763)
+
+[node name="BurgerLandedSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_smepj")
 
 [connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
-[connection signal="body_entered" from="Mouth" to="." method="_on_mouth_body_entered"]
+[connection signal="body_entered" from="MouthPortal" to="." method="_on_mouth_body_entered"]

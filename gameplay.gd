@@ -2,12 +2,14 @@ class_name World extends Node3D
 
 static var burgers_landed: int = 0
 
+
 static var charging_throw: bool = false
 static var throw_power : float = 1
 var burgers_thrown_count : int = 0:
 	set(val):
 		burgers_thrown_count = val
 		%BurgersThrownCountLabel.text = tr("Burgers thrown count: ") + str(burgers_thrown_count)
+		%BurgersLandedCount.text = tr("Burgers thrown count: ") + str(burgers_landed)
 
 var burger_thrown: bool = false:
 	set(val):
@@ -15,7 +17,6 @@ var burger_thrown: bool = false:
 		burgers_thrown_count += 1
 
 #var power_applied : float = 0  #Power applied in x direction
-
 var reference_ray : Dictionary
 
 @onready var viewport := get_viewport()
@@ -25,6 +26,8 @@ var reference_ray : Dictionary
 @onready var current_burger: Burger = $InitialBurger
 @onready var burger_spawn_point : Vector3 = current_burger.global_transform.origin
 
+#func _ready():
+	#
 
 func _input(event: InputEvent) -> void:
 	if current_burger == null:
@@ -112,4 +115,5 @@ func _on_mouth_body_entered(body: Node3D) -> void:
 	print(body.get_class())
 	if body is Burger or body is RigidBody3D: #Class based identifaction doesnt work?
 		body.queue_free()
-		%Mouth.on_burger_hit()
+		%MouthPortal.on_burger_hit()
+		%BurgerLandedSound.play()

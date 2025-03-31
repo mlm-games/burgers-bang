@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://cns07x2ciq2dr"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_s1mr0"]
+[ext_resource type="PackedScene" uid="uid://d1sg6ckjpyv4c" path="res://assets/burger.blend" id="1_nkn5y"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_nkn5y"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_s1mr0"]
 
 [node name="Burger" type="RigidBody3D" groups=["Burgers"]]
 mass = 0.25
@@ -12,4 +12,6 @@ gravity_scale = 0.6
 shape = SubResource("SphereShape3D_s1mr0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_nkn5y")
+
+[node name="burger" parent="." instance=ExtResource("1_nkn5y")]
+transform = Transform3D(-0.251529, 0, -0.154137, 0, 0.295, 0, 0.154137, 0, -0.251529, 0, 0, 0)
