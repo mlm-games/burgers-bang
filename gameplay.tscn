@@ -89,7 +89,7 @@ one_shot = true
 
 [node name="MouthPortal" parent="." instance=ExtResource("4_xuee5")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.15, 3.847)
+transform = Transform3D(3.35325e-15, 7.67135e-08, 1.755, 1.755, -7.67135e-08, 0, 7.67135e-08, 1.755, -7.67135e-08, 0, 2.15, 3.69202)
 
 [node name="FillersSpawnPath" type="Path3D" parent="."]
 curve = SubResource("Curve3D_xuee5")
