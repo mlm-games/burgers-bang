@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7dv6l03f70pc"]
+
+[ext_resource type="Script" uid="uid://bvo1pjx7odgm5" path="res://burger_fillers.gd" id="1_61r1n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rm3cv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yuly8"]
+
+[node name="BurgerFillers" type="Area3D"]
+script = ExtResource("1_61r1n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rm3cv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_yuly8")

@@ -1,8 +1,9 @@
-extends Node3D
+class_name World extends Node3D
 
+static var burgers_landed: int = 0
 
-var charging_throw: bool = false
-var throw_power : float = 1
+static var charging_throw: bool = false
+static var throw_power : float = 1
 var burgers_thrown_count : int = 0:
 	set(val):
 		burgers_thrown_count = val
@@ -13,11 +14,8 @@ var burger_thrown: bool = false:
 		current_burger = null
 		burgers_thrown_count += 1
 
-var burgers_landed = 0
-
 #var power_applied : float = 0  #Power applied in x direction
 
-var swipe_direction: float = 0
 var reference_ray : Dictionary
 
 @onready var viewport := get_viewport()
@@ -57,12 +55,12 @@ func _input(event: InputEvent) -> void:
 func throw_burger() -> void:
 	current_burger.gravity_scale = 1
 	
-	var screen_center = Vector2(DisplayServer.screen_get_size().x/2, DisplayServer.screen_get_size().y/2)
-	var mouse_pos = DisplayServer.mouse_get_position()
+	var screen_center := Vector2(DisplayServer.screen_get_size().x/2, DisplayServer.screen_get_size().y/2)
+	var mouse_pos := DisplayServer.mouse_get_position()
 	
-	var direction = (mouse_pos - Vector2i(screen_center))
+	var direction := (mouse_pos - Vector2i(screen_center))
 	
-	var angle = atan2(direction.x, direction.y)
+	var angle := atan2(direction.x, direction.y)
 	
 	#if angle > -PI/2 and angle < PI/2: angle += 3*PI/2
 	current_burger.rotation.y = angle
@@ -84,7 +82,7 @@ func throw_burger() -> void:
 	#%BurgerRespawnTimer.start(); await %BurgerRespawnTimer.timeout
 	
 ##Extra info: https://stackoverflow.com/questions/76893256/how-to-get-the-3d-mouse-pos-in-godot-4-1 or the yt vid
-func shoot_ray(event: InputEvent):
+func shoot_ray(event: InputEvent) -> Dictionary:
 	var dir_ray : Dictionary = get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.project_ray_origin(event.position),\
 			 camera.project_ray_origin(event.position) + (camera.project_ray_normal(event.position) * camera.far)))
 	if !dir_ray: 
@@ -114,4 +112,4 @@ func _on_mouth_body_entered(body: Node3D) -> void:
 	print(body.get_class())
 	if body is Burger or body is RigidBody3D: #Class based identifaction doesnt work?
 		body.queue_free()
-		burgers_landed +=1
+		%Mouth.on_burger_hit()

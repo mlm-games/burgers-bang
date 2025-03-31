@@ -1,4 +1,4 @@
-class_name BurgerFillers extends Area3D
+class_name Mouth extends Area3D
 
 const MOVE_DIR = [Vector3.DOWN, Vector3.LEFT, Vector3.UP, Vector3.RIGHT]
 
