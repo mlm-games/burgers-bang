@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://frnl54hgkdxh"]
+
+[ext_resource type="FontFile" uid="uid://coiaqb8xwuaic" path="res://addons/ridiculous_coding/GravityBold8.ttf" id="1_hm4h7"]
+
+[resource]
+fallbacks = Array[Font]([ExtResource("1_hm4h7")])
+opentype_features = {
+1667329140: 0
+}

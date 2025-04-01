@@ -66,21 +66,46 @@ visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="BurgersThrownCountLabel" type="Label" parent="UI"]
+[node name="GameEndPanel" type="Panel" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BurgersThrownCountLabel" type="Label" parent="UI/GameEndPanel"]
 unique_name_in_owner = true
+visible = false
+layout_mode = 0
 offset_left = 387.0
 offset_top = 41.0
-offset_right = 719.0
+offset_right = 728.0
 offset_bottom = 64.0
 text = "MENU_LABEL_BURGERS_THROWN_COUNT: 0"
 
-[node name="BurgersLandedCount" type="Label" parent="UI"]
+[node name="BurgersLandedCount" type="Label" parent="UI/GameEndPanel"]
 unique_name_in_owner = true
+visible = false
+layout_mode = 0
 offset_left = 391.0
 offset_top = 67.0
 offset_right = 732.0
 offset_bottom = 90.0
 text = "MENU_LABEL_BURGERS_THROWN_COUNT: 0"
+
+[node name="HighscoreLabel" type="Label" parent="UI/GameEndPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Points" type="RichTextLabel" parent="UI"]
+unique_name_in_owner = true
+offset_left = 149.0
+offset_top = 75.0
+offset_right = 976.0
+offset_bottom = 297.0
+text = "BurgerScore = "
+
+[node name="CombosLabel" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="BurgerRespawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -95,7 +120,7 @@ transform = Transform3D(3.35325e-15, 7.67135e-08, 1.755, 1.755, -7.67135e-08, 0,
 curve = SubResource("Curve3D_xuee5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="FillersSpawnPath"]
-transform = Transform3D(2.98023e-08, 0.99986, -0.0167101, 0.0298109, -0.0167027, -0.999414, -0.999554, -0.000498146, -0.0298067, 3.58417, -0.00377023, 2.18763)
+transform = Transform3D(2.98022e-08, 0.99986, -0.0167101, 0.0298108, -0.0167027, -0.999414, -0.999553, -0.000498146, -0.0298067, 3.58417, -0.00377023, 2.18763)
 
 [node name="BurgerLandedSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

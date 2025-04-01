@@ -107,6 +107,8 @@ func shoot_ray(event: InputEvent) -> Dictionary:
 func _on_burger_respawn_timer_timeout() -> void:
 	current_burger = Burger.new_burger_at_position(burger_spawn_point)
 	add_child(current_burger)
+	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(current_burger, "scale", Vector3.ONE, 0.2)
 	
 	
 

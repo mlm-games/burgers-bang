@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c0fhho0dp1svt"]
 
-[ext_resource type="Script" path="res://addons/ridiculous_coding/blip.gd" id="1_tp8nq"]
+[ext_resource type="Script" uid="uid://dud72inmlv2gj" path="res://addons/ridiculous_coding/blip.gd" id="1_tp8nq"]
 [ext_resource type="Texture2D" uid="uid://d1tio2ceqgm7m" path="res://addons/ridiculous_coding/blip.png" id="2_kj7um"]
 [ext_resource type="AudioStream" uid="uid://b2ood3lkcgpqb" path="res://addons/ridiculous_coding/blip.wav" id="3_xg6qd"]
 [ext_resource type="FontFile" uid="uid://bvwnnnja1ur2i" path="res://addons/ridiculous_coding/font.tres" id="4_ullf3"]
@@ -109,7 +109,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8epm6"]
 _data = {
-"default": SubResource("Animation_u2m4c")
+&"default": SubResource("Animation_u2m4c")
 }
 
 [sub_resource type="Gradient" id="Gradient_mplh3"]
@@ -132,33 +132,31 @@ script = ExtResource("1_tp8nq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_g4ki7")
-frame = 7
-frame_progress = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xg6qd")
 volume_db = -12.0
 autoplay = true
+stream_paused = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8epm6")
+&"": SubResource("AnimationLibrary_8epm6")
 }
 autoplay = "default"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-emitting = false
 amount = 50
-process_material = SubResource("ParticleProcessMaterial_5k50n")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5k50n")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
-modulate = Color(1.88557, 1.35563, 0.609976, 1)
+modulate = Color(0.374864, 0.133434, 1.05353, 1)
 texture_filter = 1
 offset_left = -35.0
 offset_top = -70.0
