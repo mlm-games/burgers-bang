@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=18 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
 [ext_resource type="Script" uid="uid://3npklxk4k22d" path="res://burger.gd" id="2_ej4tk"]
 [ext_resource type="PackedScene" uid="uid://6yijrlcywfqj" path="res://mouth.tscn" id="4_xuee5"]
 [ext_resource type="AudioStream" uid="uid://dpucavn34g07v" path="res://assets/positive.ogg" id="5_smepj"]
+[ext_resource type="AudioStream" uid="uid://brc1spnylr825" path="res://assets/the client.ogg" id="6_cbffv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oe8ih"]
 sky_top_color = Color(0.227451, 0.368627, 0.521569, 1)
@@ -199,6 +200,7 @@ color = Color(1, 1, 1, 0.392157)
 
 [node name="FlyingBurgers" type="CPUParticles3D" parent="WorldDetails"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5786, 8, 12.5973)
+visible = false
 amount = 5
 lifetime = 15.0
 mesh = SubResource("CylinderMesh_smepj")
@@ -214,7 +216,7 @@ scale_amount_max = 0.5
 color = Color(1, 1, 1, 0.8)
 
 [node name="AmbientSounds" type="AudioStreamPlayer" parent="WorldDetails"]
-volume_db = -15.0
+stream = ExtResource("6_cbffv")
 autoplay = true
 
 [node name="Decorations" type="Node3D" parent="."]
