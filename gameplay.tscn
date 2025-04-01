@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=16 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
@@ -7,8 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://dpucavn34g07v" path="res://assets/positive.ogg" id="5_smepj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oe8ih"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+sky_top_color = Color(0.227451, 0.368627, 0.521569, 1)
+sky_horizon_color = Color(0.576471, 0.694118, 0.807843, 1)
+ground_bottom_color = Color(0.2, 0.168627, 0.133333, 1)
+ground_horizon_color = Color(0.576471, 0.694118, 0.807843, 1)
+ground_curve = 0.25
 
 [sub_resource type="Sky" id="Sky_xuee5"]
 sky_material = SubResource("ProceduralSkyMaterial_oe8ih")
@@ -17,9 +20,36 @@ sky_material = SubResource("ProceduralSkyMaterial_oe8ih")
 background_mode = 2
 sky = SubResource("Sky_xuee5")
 tonemap_mode = 2
+ssao_enabled = true
+ssao_intensity = 1.5
+ssil_enabled = true
 glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.2
+fog_enabled = true
+fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
+fog_density = 0.001
+fog_sky_affect = 0.15
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_n4psk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbffv"]
+albedo_color = Color(0.85098, 0.847059, 0.819608, 1)
+roughness = 0.6
+rim_enabled = true
+rim = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smepj"]
+albedo_color = Color(0.301961, 0.392157, 0.501961, 1)
+roughness = 0.7
+rim_enabled = true
+rim = 0.1
 
 [sub_resource type="Curve3D" id="Curve3D_xuee5"]
 closed = true
@@ -29,6 +59,16 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="SphereMesh" id="SphereMesh_smepj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cbffv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbudy"]
+albedo_color = Color(0.85098, 0.65098, 0.45098, 1)
+roughness = 0.7
+rim_enabled = true
+rim = 0.1
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_oe8ih")
 
@@ -37,8 +77,11 @@ environment = SubResource("Environment_smepj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_color = Color(0.799333, 1, 0.72, 1)
+light_color = Color(1, 0.956863, 0.839216, 1)
+light_energy = 1.2
 shadow_enabled = true
+shadow_blur = 1.5
+directional_shadow_max_distance = 50.0
 
 [node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
 script = ExtResource("2_ej4tk")
@@ -46,6 +89,7 @@ script = ExtResource("2_ej4tk")
 [node name="Wall with the mouth?" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.165, 0, 0, 0, 7.085, 0, 0, 0, 1, -0.037673, 0.12402, 4.69082)
 mesh = SubResource("BoxMesh_n4psk")
+surface_material_override/0 = SubResource("StandardMaterial3D_cbffv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Wall with the mouth?"]
 use_collision = true
@@ -53,6 +97,7 @@ use_collision = true
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.165, 0, 0, 0, -3.09695e-07, -1, 0, 7.085, -4.37114e-08, -0.037673, -1.0536, -1.35902)
 mesh = SubResource("BoxMesh_n4psk")
+surface_material_override/0 = SubResource("StandardMaterial3D_smepj")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
 use_collision = true
@@ -125,6 +170,67 @@ transform = Transform3D(2.98022e-08, 0.99986, -0.0167101, 0.0298108, -0.0167027,
 [node name="BurgerLandedSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_smepj")
+
+[node name="WorldDetails" type="Node3D" parent="."]
+
+[node name="Clouds" type="CPUParticles3D" parent="WorldDetails"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5972, 15, 0)
+amount = 15
+lifetime = 60.0
+mesh = SubResource("SphereMesh_smepj")
+emission_shape = 3
+emission_box_extents = Vector3(30, 2, 30)
+gravity = Vector3(0.1, 0, 0)
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(1, 1, 1, 0.392157)
+
+[node name="FlyingBurgers" type="CPUParticles3D" parent="WorldDetails"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5786, 8, 12.5973)
+amount = 5
+lifetime = 15.0
+mesh = SubResource("BoxMesh_cbffv")
+emission_shape = 3
+emission_box_extents = Vector3(1, 5, 1)
+direction = Vector3(1, 0.1, 1)
+spread = 15.0
+gravity = Vector3(0, -0.1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+color = Color(1, 1, 1, 0.8)
+
+[node name="AmbientSounds" type="AudioStreamPlayer" parent="WorldDetails"]
+volume_db = -15.0
+autoplay = true
+
+[node name="Decorations" type="Node3D" parent="."]
+visible = false
+
+[node name="FloatingPlatform1" type="CSGBox3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, -2.5, 0.5, 1)
+size = Vector3(1.5, 0.2, 1.5)
+material = SubResource("StandardMaterial3D_fbudy")
+
+[node name="FloatingPlatform2" type="CSGBox3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 2.5, 1, 0.5)
+size = Vector3(1.5, 0.2, 1.5)
+material = SubResource("StandardMaterial3D_fbudy")
+
+[node name="DecoLights" type="Node3D" parent="Decorations"]
+
+[node name="SpotLight3D1" type="SpotLight3D" parent="Decorations/DecoLights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 3, 3.5)
+light_color = Color(0.94902, 0.666667, 0.4, 1)
+light_energy = 5.0
+spot_angle = 30.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Decorations/DecoLights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 3, 3.5)
+light_color = Color(0.4, 0.65098, 0.94902, 1)
+light_energy = 5.0
+spot_angle = 30.0
 
 [connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
 [connection signal="body_entered" from="MouthPortal" to="." method="_on_mouth_body_entered"]
