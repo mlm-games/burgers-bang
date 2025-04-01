@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cns07x2ciq2dr"]
+[gd_scene load_steps=4 format=3 uid="uid://cns07x2ciq2dr"]
 
+[ext_resource type="Script" uid="uid://3npklxk4k22d" path="res://burger.gd" id="1_5n162"]
 [ext_resource type="PackedScene" uid="uid://d1sg6ckjpyv4c" path="res://assets/burger.blend" id="1_nkn5y"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s1mr0"]
@@ -7,6 +8,7 @@
 [node name="Burger" type="RigidBody3D" groups=["Burgers"]]
 mass = 0.25
 gravity_scale = 0.6
+script = ExtResource("1_5n162")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_s1mr0")
@@ -15,3 +17,9 @@ shape = SubResource("SphereShape3D_s1mr0")
 
 [node name="burger" parent="." instance=ExtResource("1_nkn5y")]
 transform = Transform3D(-0.251529, 0, -0.154137, 0, 0.295, 0, 0.154137, 0, -0.251529, 0, 0, 0)
+
+[node name="ScoreReduceAfterTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ScoreReduceAfterTimer" to="." method="_on_score_reduce_after_timer_timeout"]

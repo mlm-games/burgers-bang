@@ -2,14 +2,11 @@ class_name World extends Node3D
 
 static var burgers_landed: int = 0
 
+static var burger_score : int = 0
 
 static var charging_throw: bool = false
 static var throw_power : float = 1
-var burgers_thrown_count : int = 0:
-	set(val):
-		burgers_thrown_count = val
-		%BurgersThrownCountLabel.text = tr("Burgers thrown count: ") + str(burgers_thrown_count)
-		%BurgersLandedCount.text = tr("Burgers thrown count: ") + str(burgers_landed)
+static var burgers_thrown_count : int = 0
 
 var burger_thrown: bool = false:
 	set(val):
@@ -79,6 +76,7 @@ func throw_burger() -> void:
 	burger_thrown = true
 	
 	if %BurgerRespawnTimer.is_stopped(): %BurgerRespawnTimer.start()
+
 	
 	charging_throw = false
 	
@@ -114,8 +112,18 @@ func _on_burger_respawn_timer_timeout() -> void:
 
 
 func _on_mouth_body_entered(body: Node3D) -> void:
-	print(body.get_class())
-	if body is Burger or body is RigidBody3D: #Class based identifaction doesnt work?
+	if body is Burger or body is RigidBody3D: #Class based identifaction doesnt work (as of 4.4)
 		body.queue_free()
 		%MouthPortal.on_burger_hit()
 		%BurgerLandedSound.play()
+		burger_score += body.burger_points
+		%Points.text = tr("Burger score: ") + str(burger_score)
+
+
+func _on_death_plane_body_entered(body: Node3D) -> void:
+	if body is Burger or body is RigidBody3D:
+		body.queue_free()
+		print("Game Over")
+		GameOverStatsScreen.highscore = maxi(GameOverStatsScreen.highscore, burger_score)
+		Transitions.change_scene_with_transition("uid://dhp6qc7m1lijw")
+		#TODO: Play game over sound.

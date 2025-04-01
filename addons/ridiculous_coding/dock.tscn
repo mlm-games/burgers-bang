@@ -49,19 +49,19 @@ layout_mode = 2
 [node name="xpLabel" type="Label" parent="VBoxContainer/XP/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "XP: 9135 / 9550"
+text = "XP: 9762 / 10550"
 
 [node name="levelLabel" type="Label" parent="VBoxContainer/XP/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Level: 19"
+text = "Level: 20"
 horizontal_alignment = 2
 
 [node name="ProgressBar" type="TextureProgressBar" parent="VBoxContainer/XP"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-max_value = 950.0
-value = 535.0
+max_value = 1000.0
+value = 212.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_vdb3k")
 texture_progress = ExtResource("4_y2kl4")

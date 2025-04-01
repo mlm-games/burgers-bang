@@ -34,6 +34,7 @@ Burgers=""
 
 [gui]
 
+theme/custom="uid://dvdl0g6ajpyuu"
 theme/custom_font="res://rota_type_font.tres"
 
 [internationalization]
@@ -43,3 +44,7 @@ locale/translations=PackedStringArray("res://locale/translations.ar.translation"
 [physics]
 
 3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.436756, 0.564494, 0.228692, 1)

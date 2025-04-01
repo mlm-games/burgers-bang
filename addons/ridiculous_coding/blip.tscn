@@ -156,7 +156,7 @@ process_material = SubResource("ParticleProcessMaterial_5k50n")
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
-modulate = Color(0.374864, 0.133434, 1.05353, 1)
+modulate = Color(0.247904, 1.75492, 0.329642, 1)
 texture_filter = 1
 offset_left = -35.0
 offset_top = -70.0
