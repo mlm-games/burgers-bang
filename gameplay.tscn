@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=17 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
@@ -60,8 +60,19 @@ _data = {
 point_count = 4
 
 [sub_resource type="SphereMesh" id="SphereMesh_smepj"]
+radius = 1.0
+height = 2.0
+radial_segments = 8
+rings = 4
 
-[sub_resource type="BoxMesh" id="BoxMesh_cbffv"]
+[sub_resource type="Curve" id="Curve_smepj"]
+_data = [Vector2(0, 0.8), 0.0, 0.2, 0, 1, Vector2(1, 1), 0.2, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_smepj"]
+height = 0.2
+radial_segments = 12
+rings = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbudy"]
 albedo_color = Color(0.85098, 0.65098, 0.45098, 1)
@@ -183,13 +194,14 @@ emission_box_extents = Vector3(30, 2, 30)
 gravity = Vector3(0.1, 0, 0)
 scale_amount_min = 5.0
 scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_smepj")
 color = Color(1, 1, 1, 0.392157)
 
 [node name="FlyingBurgers" type="CPUParticles3D" parent="WorldDetails"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5786, 8, 12.5973)
 amount = 5
 lifetime = 15.0
-mesh = SubResource("BoxMesh_cbffv")
+mesh = SubResource("CylinderMesh_smepj")
 emission_shape = 3
 emission_box_extents = Vector3(1, 5, 1)
 direction = Vector3(1, 0.1, 1)
