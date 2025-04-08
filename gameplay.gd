@@ -123,6 +123,7 @@ func _on_mouth_body_entered(body: Node3D) -> void:
 func _on_death_plane_body_entered(body: Node3D) -> void:
 	if body is Burger or body is RigidBody3D:
 		body.queue_free()
+		%DeathSound.play()
 		print("Game Over")
 		GameOverStatsScreen.highscore = maxi(GameOverStatsScreen.highscore, burger_score)
 		Transitions.change_scene_with_transition("uid://dhp6qc7m1lijw")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dvdl0g6ajpyuu" path="res://TempTheme.tres" id="1_jhk12"]
 [ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://anim_button.gd" id="1_s85m3"]
-[ext_resource type="AudioStream" uid="uid://b2ood3lkcgpqb" path="res://addons/ridiculous_coding/blip.wav" id="3_t7jbi"]
+[ext_resource type="AudioStream" uid="uid://dloq0sk6atxti" path="res://assets/Beeps/beep-11.wav" id="3_t7jbi"]
 
 [sub_resource type="Gradient" id="Gradient_s85m3"]
 
@@ -47,4 +47,5 @@ text = "hihi"
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_t7jbi")
+volume_db = -13.37
 bus = &"Sfx"

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://dvdl0g6ajpyuu"]
+[gd_resource type="Theme" load_steps=37 format=3 uid="uid://dvdl0g6ajpyuu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkjnx"]
 content_margin_left = 5.0
@@ -129,6 +129,22 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2rna"]
+bg_color = Color(1, 0.95, 0.85, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.7, 0.5, 0.3, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1r7g1"]
 bg_color = Color(1, 0.95, 0.85, 1)
@@ -357,6 +373,7 @@ MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
+PanelContainer/styles/EndScreenVariant = SubResource("StyleBoxFlat_m2rna")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_1r7g1")
 PopupMenu/colors/font_color = Color(0.6, 0.35, 0.2, 1)
 PopupMenu/colors/font_hover_color = Color(0.6, 0.35, 0.2, 1)

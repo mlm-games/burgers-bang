@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=19 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
 [ext_resource type="PackedScene" uid="uid://6yijrlcywfqj" path="res://mouth.tscn" id="4_xuee5"]
 [ext_resource type="AudioStream" uid="uid://dpucavn34g07v" path="res://assets/positive.ogg" id="5_smepj"]
 [ext_resource type="AudioStream" uid="uid://brc1spnylr825" path="res://assets/the client.ogg" id="6_cbffv"]
+[ext_resource type="AudioStream" uid="uid://c64rqlf28hyww" path="res://assets/Beeps/beep-12.wav" id="6_fbudy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oe8ih"]
 sky_top_color = Color(0.227451, 0.368627, 0.521569, 1)
@@ -223,6 +224,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.84004, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
 shape = SubResource("WorldBoundaryShape3D_smepj")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_fbudy")
 
 [connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
 [connection signal="body_entered" from="MouthPortal" to="." method="_on_mouth_body_entered"]

@@ -71,7 +71,7 @@ func _on_button_up() -> void:
 
 
 func _on_pressed() -> void:
-	audio_stream_player.stream = load("uid://dpucavn34g07v")
+	audio_stream_player.stream = load("uid://dk4yync8twumc")
 	audio_stream_player.pitch_scale = 2.5
 	audio_stream_player.play()
 
