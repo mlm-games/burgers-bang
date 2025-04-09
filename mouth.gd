@@ -4,7 +4,7 @@ const MAX_TRAVEL_WIDTH = 2
 
 static var move_distance : float = 0.1
 static var move_continously: bool = false
-static  var tween: Tween
+static var tween: Tween
 static var later_move_speed_mult: float = 1
 static var moving_right : bool = true
 @export var move_max_distance: float
@@ -39,3 +39,9 @@ func on_burger_hit() -> void:
 	if World.burgers_landed > 10:
 		move_continously = !move_continously
 		later_move_speed_mult += 0.05
+
+static func reset_values():
+	move_distance = 0
+	move_continously = false
+	later_move_speed_mult = 1
+	

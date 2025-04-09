@@ -24,6 +24,10 @@ SettingsData="*res://addons/basic_settings_menu/settings_data.gd"
 
 gdscript/warnings/untyped_declaration=1
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")

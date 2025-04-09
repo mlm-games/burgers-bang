@@ -16,11 +16,8 @@ func _ready():
 			if locale_index >= 0 and locale_index < locale_keys.size():
 					locale = locale_keys[locale_index]
 	
-	# Now set the locale with the correct value
-	TranslationServer.set_locale(locale)
-	print("Setting locale to: " + locale)
-	print(TranslationServer.get_locale())
-	add_child(test_audio_player)
+	if !FileAccess.file_exists(SETTINGS_SAVE_RES_PATH):
+		save_settings()
 	
 
 func save_settings() -> void:

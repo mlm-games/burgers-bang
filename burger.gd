@@ -2,7 +2,7 @@ class_name Burger extends RigidBody3D
 
 const BurgerScene = preload("uid://cns07x2ciq2dr")
 
-var burger_points: int = 3
+var burger_points: int = 4
 
 static func new_burger_at_position(pos: Vector3) -> Burger:
 	var burger_instance := BurgerScene.instantiate()
@@ -15,4 +15,12 @@ static func new_burger_at_position(pos: Vector3) -> Burger:
 #TODO: Add particles on scoring
 
 func _on_score_reduce_after_timer_timeout() -> void:
-	burger_points = 2
+	burger_points -= 1
+
+
+func minimize_and_queue_free() -> void:
+	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(self, "scale", Vector3.ZERO, 0.25)
+	await tween.finished
+	queue_free()

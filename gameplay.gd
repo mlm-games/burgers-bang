@@ -113,11 +113,11 @@ func _on_burger_respawn_timer_timeout() -> void:
 
 func _on_mouth_body_entered(body: Node3D) -> void:
 	if body is Burger or body is RigidBody3D: #Class based identifaction doesnt work (as of 4.4)
-		body.queue_free()
+		body.minimize_and_queue_free()
 		%MouthPortal.on_burger_hit()
 		%BurgerLandedSound.play()
 		burger_score += body.burger_points
-		%Points.text = tr("Burger score: ") + str(burger_score)
+		%Points.text = tr("Burger Score: ") + str(burger_score)
 
 
 func _on_death_plane_body_entered(body: Node3D) -> void:
