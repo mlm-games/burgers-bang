@@ -8,8 +8,6 @@
 
 [node name="BurgerFillers" type="Area3D"]
 script = ExtResource("1_61r1n")
-occasional_move_speed = null
-move_max_distance = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rm3cv")

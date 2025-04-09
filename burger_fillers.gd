@@ -23,8 +23,8 @@ func on_burger_hit() -> void:
 		print(global_position)
 	if World.burgers_landed > 6:
 		move_distance = minf(move_distance+0.1, 1.5)
-
-static func reset_values() -> void:
-	move_distance = 0.1
-	move_continously = false
+#
+#static func reset_values() -> void:
+	#move_distance = 0.1
+	#move_continously = false
 	
