@@ -23,8 +23,8 @@ var reference_ray : Dictionary
 @onready var current_burger: Burger = $InitialBurger
 @onready var burger_spawn_point : Vector3 = current_burger.global_transform.origin
 
-#func _ready():
-	#
+func _ready():
+	Mouth.reset_values()
 
 func _input(event: InputEvent) -> void:
 	if current_burger == null:
@@ -107,8 +107,6 @@ func _on_burger_respawn_timer_timeout() -> void:
 	add_child(current_burger)
 	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
 	tween.tween_property(current_burger, "scale", Vector3.ONE, 0.2)
-	
-	
 
 
 func _on_mouth_body_entered(body: Node3D) -> void:

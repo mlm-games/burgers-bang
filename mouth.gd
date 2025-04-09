@@ -1,4 +1,4 @@
-class_name BurgerFillers extends Area3D
+class_name Mouth extends Area3D
 
 const MAX_TRAVEL_WIDTH = 2
 
@@ -40,7 +40,7 @@ func on_burger_hit() -> void:
 		move_continously = !move_continously
 		later_move_speed_mult += 0.05
 
-static func reset_values():
+static func reset_values() -> void:
 	move_distance = 0
 	move_continously = false
 	later_move_speed_mult = 1
