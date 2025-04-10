@@ -8,7 +8,8 @@ func _ready() -> void:
 	%ExitButton.pressed.connect(_on_exit_button_pressed)
 
 func _on_play_button_pressed() -> void:
-	Transitions.change_scene_with_transition("uid://dabcmqvvcej4o")
+	LoadingScreen.load_scene("uid://dabcmqvvcej4o")
+	self.hide()
 
 
 func _on_exit_button_pressed() -> void:

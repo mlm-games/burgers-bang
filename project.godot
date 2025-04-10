@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Transitions="*res://autoloads/transitions.tscn"
 SettingsData="*res://addons/basic_settings_menu/settings_data.gd"
+LoadingScreen="*res://loading_screen.tscn"
 
 [debug]
 
