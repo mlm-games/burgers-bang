@@ -19,6 +19,7 @@ func _on_score_reduce_after_timer_timeout() -> void:
 
 
 func minimize_and_queue_free() -> void:
+	$CollisionShape3D.set_deferred_thread_group("disabled", true)
 	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	tween.tween_property(self, "scale", Vector3.ZERO, 0.25)

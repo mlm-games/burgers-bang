@@ -72,7 +72,7 @@ func _on_button_up() -> void:
 
 func _on_pressed() -> void:
 	audio_stream_player.stream = load("uid://dk4yync8twumc")
-	audio_stream_player.pitch_scale = 2.5
+	# audio_stream_player.pitch_scale = 1.2
 	audio_stream_player.play()
 
 
@@ -81,6 +81,8 @@ func _on_pressed() -> void:
 	#_on_mouse_entered()
 
 func _exit_tree() -> void:
+	#await audio_stream_player.finished
+	#audio_stream_player.volume_db = -1000
 	audio_stream_player.queue_free()
 
 func reset_tween() -> void:

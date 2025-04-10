@@ -23,7 +23,8 @@ var reference_ray : Dictionary
 @onready var current_burger: Burger = $InitialBurger
 @onready var burger_spawn_point : Vector3 = current_burger.global_transform.origin
 
-func _ready():
+func _ready() -> void:
+	if LoadingScreen.is_visible_in_tree(): LoadingScreen.hide()
 	Mouth.reset_values()
 
 func _input(event: InputEvent) -> void:
@@ -125,4 +126,10 @@ func _on_death_plane_body_entered(body: Node3D) -> void:
 		print("Game Over")
 		GameOverStatsScreen.highscore = maxi(GameOverStatsScreen.highscore, burger_score)
 		Transitions.change_scene_with_transition("uid://dhp6qc7m1lijw")
-		#TODO: Play game over sound.
+
+func fade_in_bgm(audio_player: AudioStreamPlayer) -> void:
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
+	var initial_vol = audio_player.volume_db
+	audio_player.volume_db = -80
+	tween.tween_property(audio_player, "volume_db", initial_vol, 1.0)
+	audio_player.play()

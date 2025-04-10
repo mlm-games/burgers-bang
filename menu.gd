@@ -1,6 +1,11 @@
 extends Control
 
 func _ready() -> void:
+	if (OS.get_name() == "Android"):
+		%PlayButton.scale *= 1.5
+		%SettingsButton.scale *= 1.5
+		%ExitButton.scale *= 1.5
+		#get_tree().root.set_content_scale_factor(2)
 	%PlayButton.grab_focus()
 	
 	%PlayButton.pressed.connect(_on_play_button_pressed)

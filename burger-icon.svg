@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="burger.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.51"
+     inkscape:cx="50.15361"
+     inkscape:cy="50"
+     inkscape:window-width="1536"
+     inkscape:window-height="902"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <path
+     d="m 37.230539,37.884932 q 7.240298,-1.180417 8.420716,6.05988 7.240297,-1.180418 8.420716,6.059881 7.240297,-1.180419 8.420715,6.059878 7.240298,-1.180417 6.315538,4.544911 L 67.293253,62.71466 33.61039,38.475142 35.125361,36.369963 Z"
+     fill="#5fad41"
+     id="path5"
+     style="stroke-width:0.518726" />
+  <ellipse
+     cx="70.503479"
+     cy="1.2224873"
+     rx="20.749033"
+     ry="7.7808876"
+     fill="#f5bb60"
+     id="ellipse1"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <ellipse
+     cx="70.503479"
+     cy="1.2224873"
+     rx="19.192856"
+     ry="6.7434359"
+     fill="#f8cd85"
+     id="ellipse2"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="62.722588"
+     cy="-0.3336913"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle2"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="67.909851"
+     cy="-1.3711401"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle3"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="73.097107"
+     cy="-0.3336913"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle4"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="78.28437"
+     cy="-1.3711401"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle5"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <rect
+     x="52.348072"
+     y="11.597003"
+     width="36.31081"
+     height="4.1498065"
+     fill="#f4d03f"
+     id="rect5"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <path
+     d="m 65.227345,63.191337 0.59021,3.620149 -3.014162,-0.251864 z"
+     fill="#f4d03f"
+     id="path6"
+     style="stroke-width:0.518726" />
+  <ellipse
+     cx="70.503479"
+     cy="17.821714"
+     rx="20.749033"
+     ry="5.1872582"
+     fill="#7d4427"
+     id="ellipse6"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <ellipse
+     cx="70.503479"
+     cy="17.821714"
+     rx="19.192856"
+     ry="4.1498065"
+     fill="#5c3317"
+     id="ellipse7"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <ellipse
+     cx="70.503479"
+     cy="24.565149"
+     rx="20.749033"
+     ry="6.22471"
+     fill="#f5bb60"
+     id="ellipse8"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <ellipse
+     cx="70.503479"
+     cy="24.565149"
+     rx="19.192856"
+     ry="5.1872582"
+     fill="#f8cd85"
+     id="ellipse9"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <ellipse
+     cx="70.503479"
+     cy="24.565149"
+     rx="19.192856"
+     ry="5.1872582"
+     fill="#f8cd85"
+     id="ellipse10"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <ellipse
+     cx="13.394424"
+     cy="-87.613113"
+     rx="15.173041"
+     ry="4.5519123"
+     fill="#f5bb60"
+     id="ellipse11"
+     transform="rotate(125.29463)"
+     style="stroke-width:0.379326"
+     inkscape:transform-center-x="-13.278961"
+     inkscape:transform-center-y="8.967074" />
+  <ellipse
+     cx="13.394424"
+     cy="-87.613113"
+     rx="14.035064"
+     ry="3.7932603"
+     fill="#f8cd85"
+     id="ellipse12"
+     transform="rotate(125.29463)"
+     style="stroke-width:0.379326"
+     inkscape:transform-center-x="-13.278961"
+     inkscape:transform-center-y="8.967074" />
+  <ellipse
+     cx="13.394424"
+     cy="-87.613113"
+     rx="14.035064"
+     ry="3.7932603"
+     fill="#f8cd85"
+     id="ellipse13"
+     transform="rotate(125.29463)"
+     style="stroke-width:0.379326"
+     inkscape:transform-center-x="-13.278961"
+     inkscape:transform-center-y="8.967074" />
+  <ellipse
+     cx="13.843788"
+     cy="-53.186218"
+     rx="15.173041"
+     ry="4.5519123"
+     fill="#f5bb60"
+     id="ellipse14"
+     transform="rotate(125.29463)"
+     style="stroke-width:0.379326"
+     inkscape:transform-center-x="-13.278967"
+     inkscape:transform-center-y="8.9670662" />
+  <ellipse
+     cx="13.843788"
+     cy="-53.186218"
+     rx="14.035064"
+     ry="3.7932603"
+     fill="#f8cd85"
+     id="ellipse15"
+     transform="rotate(125.29463)"
+     style="stroke-width:0.379326"
+     inkscape:transform-center-x="-13.278967"
+     inkscape:transform-center-y="8.9670662" />
+  <ellipse
+     cx="13.843788"
+     cy="-53.186218"
+     rx="14.035064"
+     ry="3.7932603"
+     fill="#f8cd85"
+     id="ellipse16"
+     transform="rotate(125.29463)"
+     style="stroke-width:0.379326"
+     inkscape:transform-center-x="-13.278967"
+     inkscape:transform-center-y="8.9670662" />
+  <circle
+     cx="59.854057"
+     cy="25.562757"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle16"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="80.650902"
+     cy="23.96913"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle17"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="52.284325"
+     cy="18.63048"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle18"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="86.2286"
+     cy="6.5985899"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle19"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+  <circle
+     cx="70.770416"
+     cy="24.447222"
+     r="1.0374516"
+     fill="#f5bb60"
+     id="circle20"
+     style="stroke-width:0.518726"
+     transform="rotate(35.740282)" />
+</svg>

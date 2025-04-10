@@ -28,8 +28,7 @@ func load_scene(scene_path: String, transition_anim: String = "fadeToBlack"):
 		await get_tree().process_frame
 		await get_tree().create_timer(0.05).timeout
 	
-	get_tree().change_scene_to_packed(scene_resource)
-	visible = false
+	Transitions.change_scene_with_transition_packed(scene_resource)
 	is_loading = false
 	emit_signal("loading_complete", {"scene": scene_resource})
 
