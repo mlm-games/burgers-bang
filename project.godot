@@ -13,7 +13,7 @@ config_version=5
 config/name="Burgers Bang"
 run/main_scene="uid://r10he81gcxd1"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://y2hl84yxk0dt"
 
 [autoload]
 
