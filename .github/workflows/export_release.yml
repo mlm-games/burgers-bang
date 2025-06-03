@@ -116,6 +116,7 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           BUTLER_UPLOAD: ${{ inputs.upload_to_itch }}
           INSTALL_BLENDER: true
+          VERBOSE_IMPORT: true
 
       - name: Set artifact name and pull latest
         id: artifact-name
