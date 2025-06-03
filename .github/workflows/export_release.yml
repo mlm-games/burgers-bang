@@ -117,6 +117,7 @@ jobs:
           BUTLER_UPLOAD: ${{ inputs.upload_to_itch }}
           INSTALL_BLENDER: true
           VERBOSE_IMPORT: true
+          GODOT_PREVIEW_BUILDS: true
 
       - name: Set artifact name and pull latest
         id: artifact-name
