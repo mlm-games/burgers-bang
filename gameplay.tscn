@@ -1,18 +1,26 @@
-[gd_scene load_steps=19 format=3 uid="uid://dabcmqvvcej4o"]
+[gd_scene load_steps=27 format=3 uid="uid://dabcmqvvcej4o"]
 
 [ext_resource type="PackedScene" uid="uid://cns07x2ciq2dr" path="res://burger.tscn" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://clkmqu8xyxe8m" path="res://gameplay.gd" id="1_oe8ih"]
+[ext_resource type="Texture2D" uid="uid://cvb4243fn5b2r" path="res://assets/ambientcg/Tiles107_2K-JPG/Tiles107_2K-JPG_Displacement.jpg" id="4_3n40r"]
 [ext_resource type="PackedScene" uid="uid://6yijrlcywfqj" path="res://mouth.tscn" id="4_xuee5"]
+[ext_resource type="Texture2D" uid="uid://bkjlgu0o4ug3m" path="res://assets/ambientcg/Tiles107_2K-JPG/Tiles107_2K-JPG_Roughness.jpg" id="5_3n40r"]
 [ext_resource type="AudioStream" uid="uid://dpucavn34g07v" path="res://assets/positive.ogg" id="5_smepj"]
 [ext_resource type="AudioStream" uid="uid://brc1spnylr825" path="res://assets/the client.ogg" id="6_cbffv"]
 [ext_resource type="AudioStream" uid="uid://c64rqlf28hyww" path="res://assets/Beeps/beep-12.wav" id="6_fbudy"]
+[ext_resource type="Texture2D" uid="uid://besqbch0oxdpl" path="res://assets/ambientcg/Tiles107_2K-JPG/Tiles107_2K-JPG_NormalDX.jpg" id="7_3n40r"]
+[ext_resource type="VoxelGIData" uid="uid://bgy6ddgju1hi3" path="res://assets/gameplay.VoxelGI_data.res" id="7_fbudy"]
+[ext_resource type="Texture2D" uid="uid://155gc5ex70gc" path="res://assets/ambientcg/Tiles107_2K-JPG/Tiles107_2K-JPG_NormalGL.jpg" id="8_45aep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oe8ih"]
 sky_top_color = Color(0.227451, 0.368627, 0.521569, 1)
 sky_horizon_color = Color(0.576471, 0.694118, 0.807843, 1)
-ground_bottom_color = Color(0.2, 0.168627, 0.133333, 1)
+sky_energy_multiplier = 1.67
+ground_bottom_color = Color(0.352328, 0.268153, 0.0412626, 1)
 ground_horizon_color = Color(0.576471, 0.694118, 0.807843, 1)
 ground_curve = 0.25
+ground_energy_multiplier = 1.18
+energy_multiplier = 0.45
 
 [sub_resource type="Sky" id="Sky_xuee5"]
 sky_material = SubResource("ProceduralSkyMaterial_oe8ih")
@@ -46,11 +54,11 @@ roughness = 0.6
 rim_enabled = true
 rim = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smepj"]
-albedo_color = Color(0.301961, 0.392157, 0.501961, 1)
-roughness = 0.7
-rim_enabled = true
-rim = 0.1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45aep"]
+albedo_texture = ExtResource("4_3n40r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2ust"]
+albedo_texture = ExtResource("5_3n40r")
 
 [sub_resource type="Curve3D" id="Curve3D_xuee5"]
 closed = true
@@ -75,6 +83,12 @@ height = 0.2
 radial_segments = 12
 rings = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyrfw"]
+albedo_texture = ExtResource("7_3n40r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eod45"]
+albedo_texture = ExtResource("8_45aep")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbudy"]
 albedo_color = Color(0.85098, 0.65098, 0.45098, 1)
 roughness = 0.7
@@ -90,9 +104,9 @@ script = ExtResource("1_oe8ih")
 environment = SubResource("Environment_smepj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 11, -11)
 light_color = Color(1, 0.956863, 0.839216, 1)
-light_energy = 1.2
+light_energy = 0.067
 shadow_enabled = true
 shadow_blur = 1.5
 directional_shadow_max_distance = 50.0
@@ -100,17 +114,18 @@ directional_shadow_max_distance = 50.0
 [node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
 
 [node name="Wall with the mouth?" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.165, 0, 0, 0, 7.085, 0, 0, 0, 1, -0.037673, 0.12402, 4.69082)
+transform = Transform3D(10.09, 0, 0, 0, 7.085, 0, 0, 0, 1, -0.037673, 0.12402, 4.69082)
 mesh = SubResource("BoxMesh_n4psk")
 surface_material_override/0 = SubResource("StandardMaterial3D_cbffv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Wall with the mouth?"]
+material_override = SubResource("StandardMaterial3D_45aep")
 use_collision = true
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.165, 0, 0, 0, -3.09695e-07, -1, 0, 7.085, -4.37114e-08, -0.037673, -1.0536, -1.35902)
+transform = Transform3D(15.24, 0, 0, 0, -3.09695e-07, -1, 0, 7.085, -4.37114e-08, -0.037673, -1.0536, -1.35902)
+material_override = SubResource("StandardMaterial3D_x2ust")
 mesh = SubResource("BoxMesh_n4psk")
-surface_material_override/0 = SubResource("StandardMaterial3D_smepj")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
 use_collision = true
@@ -119,8 +134,9 @@ use_collision = true
 transform = Transform3D(-1, 0, 8.74228e-08, 1.18404e-08, 0.990786, 0.135439, -8.66172e-08, 0.135439, -0.990786, 0, 1, -2)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69589, -3.11118)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.813, -48.7604, 206.505)
+light_color = Color(0.783773, 0.758569, 7.70092e-07, 1)
+omni_range = 247.465
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -197,6 +213,8 @@ visible = false
 
 [node name="FloatingPlatform1" type="CSGBox3D" parent="Decorations"]
 transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, -2.5, 0.5, 1)
+material_override = SubResource("StandardMaterial3D_tyrfw")
+material_overlay = SubResource("StandardMaterial3D_eod45")
 size = Vector3(1.5, 0.2, 1.5)
 material = SubResource("StandardMaterial3D_fbudy")
 
@@ -228,6 +246,9 @@ shape = SubResource("WorldBoundaryShape3D_smepj")
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_fbudy")
+
+[node name="VoxelGI" type="VoxelGI" parent="."]
+data = ExtResource("7_fbudy")
 
 [connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
 [connection signal="body_entered" from="MouthPortal" to="." method="_on_mouth_body_entered"]

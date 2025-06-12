@@ -4,6 +4,8 @@ static var burgers_landed: int = 0
 
 static var burger_score : int = 0
 
+static var mouth : Mouth
+
 static var charging_throw: bool = false
 static var throw_power : float = 1
 static var burgers_thrown_count : int = 0
@@ -26,6 +28,7 @@ var reference_ray : Dictionary
 func _ready() -> void:
 	if LoadingScreen.is_visible_in_tree(): LoadingScreen.hide()
 	Mouth.reset_values()
+	mouth = %MouthPortal
 
 func _input(event: InputEvent) -> void:
 	if current_burger == null:
@@ -43,8 +46,9 @@ func _input(event: InputEvent) -> void:
 			
 	if event is InputEventMouseMotion and charging_throw:
 		await get_tree().create_timer(0.1).timeout
-		if charging_throw and shoot_ray(event).position != reference_ray.position and current_burger != null: 
-			throw_burger()
+		if reference_ray.has("position"):
+			if charging_throw and shoot_ray(event).position != reference_ray.position and current_burger != null: 
+				throw_burger()
 
 		#current_burger.global_position.x = get_viewport().get_global_mouse_position().x 
 		#current_burger.global_position.y = get_viewport().get_mouse_position().y ##These are local coords
@@ -52,7 +56,9 @@ func _input(event: InputEvent) -> void:
 		#swipe_direction = Vector2.UP.direction_to(Vector2(mouse_position.x, mouse_position.y))
 		#print((Vector2.UP.direction_to(Vector2(mouse_position.x, mouse_position.y))))
 			#current_burger.look_at((dir_ray.position - current_burger.global_transform.origin).normalized(), Vector3.UP)
-		
+			
+
+
 func throw_burger() -> void:
 	current_burger.gravity_scale = 1
 	

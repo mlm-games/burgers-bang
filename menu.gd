@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	if (OS.get_name() == "Android"):
+		%TitleLabel.scale *= 1.5
 		%PlayButton.scale *= 1.5
 		%SettingsButton.scale *= 1.5
 		%ExitButton.scale *= 1.5

@@ -1,3 +1,4 @@
+#class_name LoadingScreen 
 extends Control
 
 signal loading_complete(res) #For future use cases in other stuff
@@ -8,11 +9,14 @@ signal loading_complete(res) #For future use cases in other stuff
 var loaded_resources = {}
 var is_loading = false
 
+
 func load_scene(scene_path: String, transition_anim: String = "fadeToBlack"):
 	if is_loading:
 		return
 		
 	is_loading = true
+	
+	ResourceLoader.load_threaded_request(scene_path)
 	
 	Transitions.transition(transition_anim)
 	await Transitions.screen_covered

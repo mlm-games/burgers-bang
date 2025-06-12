@@ -4,7 +4,7 @@ const MOVE_DIR = [Vector3.DOWN, Vector3.LEFT, Vector3.UP, Vector3.RIGHT]
 
 static var move_distance : float = 0.1
 
-var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 
 static var occasional_move_speed: float
 static var move_max_distance: float
