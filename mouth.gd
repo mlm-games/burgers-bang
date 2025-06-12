@@ -41,14 +41,14 @@ func on_burger_hit() -> void:
 		#print(global_position)
 	if World.burgers_landed > 4:
 		move_distance = minf(move_distance+0.1, 1.4)
-	if World.burgers_landed > 0: #1
+	if World.burgers_landed > 10: #1
 		move_continously = !move_continously
 		later_move_speed_mult += 0.05
-	if World.burgers_landed > 0: #3
+	if World.burgers_landed > 30: #3
 		move_rotation = randf_range(-MAX_ROTATION, MAX_ROTATION)
 		
 
 static func reset_values() -> void:
-	move_distance = 0
+	move_distance = 0.1
 	later_move_speed_mult = 1
 	
