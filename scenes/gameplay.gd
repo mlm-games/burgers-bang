@@ -114,11 +114,12 @@ func _on_burger_respawn_timer_timeout() -> void:
 
 
 func _on_mouth_body_entered(body: Node3D) -> void:
-	if body is Burger or body is RigidBody3D: #Class based identifaction doesnt work (as of 4.4)
-		body.minimize_and_queue_free()
+	if body.is_in_group("Burgers"): #Class based identifaction doesnt work (as of 4.4, even match ig?)
+		var burger : Burger = body
+		burger.minimize_and_queue_free()
 		%MouthPortal.on_burger_hit()
 		%BurgerLandedSound.play()
-		GS.burger_score += body.burger_points
+		GS.burger_score += burger.burger_points
 		%Points.text = tr("Burger Score: ") + str(GS.burger_score)
 
 
