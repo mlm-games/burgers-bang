@@ -20,7 +20,7 @@ config/icon="uid://y2hl84yxk0dt"
 Transitions="*res://autoloads/transitions.tscn"
 SettingsData="*res://addons/basic_settings_menu/settings_data.gd"
 LoadingScreen="*res://scenes/loading_screen.tscn"
-GS="*res://autoloads/game_stats.gd"
+GS="*res://game_stats.gd"
 
 [debug]
 

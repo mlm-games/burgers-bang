@@ -8,10 +8,9 @@ var burger_points: int = 4
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 static func new_burger_at_position(_pos: Vector3) -> Burger:
-	var burger_instance := BurgerScene.instantiate()
+	var burger_instance : Burger = load("uid://cns07x2ciq2dr").instantiate()
 	#burger_instance.global_position = pos
 	#burger_instance.gravity_scale = 0.6
-	burger_instance.scale = Vector3.ZERO
 	return burger_instance
 	
 
@@ -23,12 +22,12 @@ func _process(delta: float) -> void:
 		burger.scale.y = lerpf(burger.scale.y, burger.scale.y*0.85, delta)
 
 func start_charge_effect():
-	var tween = create_tween()
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(animation_player, "speed_scale", 0.0, 0.2)
 	tween.tween_property($burger, "scale:y", $burger.scale.y * 0.85, 0.2)
 
 func stop_charge_effect():
-	var tween = create_tween()
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(animation_player, "speed_scale", 1.0, 0.2)
 	tween.tween_property($burger, "scale:y", 0.295, 0.2)
 

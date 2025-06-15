@@ -257,6 +257,22 @@ stream = ExtResource("6_fbudy")
 [node name="VoxelGI" type="VoxelGI" parent="."]
 data = ExtResource("7_fbudy")
 
+[node name="FillerSpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 15.0
+
+[node name="FillerStartTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="FillersRoot" type="Node3D" parent="."]
+
+[node name="BurgersRoot" type="Node3D" parent="."]
+
+[node name="FillerSpawnPosition" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66096, 0, 2.7009)
+
 [connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
 [connection signal="body_entered" from="MouthPortal" to="." method="_on_mouth_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="." method="_on_death_plane_body_entered"]

@@ -14,3 +14,8 @@ static var highscore: int = 0:
 
 func _ready() -> void:
 	tree = get_tree()
+
+func reset_for_new_round():
+	GS.burger_score = 0
+	GS.burgers_thrown_count = 0
+	GS.burgers_landed = 0

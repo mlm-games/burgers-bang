@@ -21,11 +21,22 @@ var reference_ray : Dictionary
 
 @onready var current_burger: Burger = $InitialBurger
 @onready var burger_spawn_point : Vector3 = current_burger.global_transform.origin
+@onready var filler_spawn_timer: Timer = %FillerSpawnTimer
+@onready var filler_spawn_position: Marker3D = %FillerSpawnPosition
 
-func _ready() -> void:
+func _ready() -> void: 
+	filler_spawn_timer.timeout.connect(func():
+		#NOTE: Temp coords, use pathfollow around the edge of scren
+		var spawn_y = randf_range(1.0, 4.0)
+		BurgerFiller.spawn_filler_at_pos(Vector3(filler_spawn_position.global_position.x, spawn_y, filler_spawn_position.global_position.z), $FillersRoot)
+		)
+	
 	if LoadingScreen.is_visible_in_tree(): LoadingScreen.hide()
 	Mouth.reset_values()
 	mouth = %MouthPortal
+	
+	await get_tree().create_timer(10).timeout
+	filler_spawn_timer.start()
 
 func _input(event: InputEvent) -> void:
 	if current_burger == null:
@@ -38,22 +49,14 @@ func _input(event: InputEvent) -> void:
 				reference_ray = shoot_ray(event)
 				print("Recognised")
 				charging_throw = true
-				#initial_swipe_pos = mouse_position
-		
-			
-	if event is InputEventMouseMotion and charging_throw:
-		await get_tree().create_timer(0.1).timeout
-		if reference_ray.has("position"):
-			if charging_throw and shoot_ray(event).position != reference_ray.position and current_burger != null: 
-				throw_burger() #TODO: INCREMENT PITCH SCORE FOR EVERY HIT (MAX 5, GET audio_utils or sound manager from other game)
-
-		#current_burger.global_position.x = get_viewport().get_global_mouse_position().x 
-		#current_burger.global_position.y = get_viewport().get_mouse_position().y ##These are local coords
-		
-		#swipe_direction = Vector2.UP.direction_to(Vector2(mouse_position.x, mouse_position.y))
-		#print((Vector2.UP.direction_to(Vector2(mouse_position.x, mouse_position.y))))
-			#current_burger.look_at((dir_ray.position - current_burger.global_transform.origin).normalized(), Vector3.UP)
-			
+				current_burger.start_charge_effect()
+			elif not event.is_pressed() and charging_throw: # On mouse release
+				if current_burger:
+					current_burger.stop_charge_effect()
+					throw_burger()
+					
+				charging_throw = false
+	 #TODO: INCREMENT PITCH SCORE FOR EVERY HIT (MAX 5, GET audio_utils or sound manager from other game)
 
 
 func throw_burger() -> void:
@@ -75,15 +78,10 @@ func throw_burger() -> void:
 	#TODO: Try to get the ball to apply the x-axis rotation for the force being applied based on the direction of the mouse pointer.
 	#TODO: set burger collision layer.
 	
-	#current_burger.apply_central_impulse(Vector3(current_burger.global_position.angle_to(mouse_position) - PI/2, 0, 0))
-	
 	burger_thrown = true
 	
 	if %BurgerRespawnTimer.is_stopped(): %BurgerRespawnTimer.start()
-
-	
-	charging_throw = false
-	
+		
 	#%BurgerRespawnTimer.start(); await %BurgerRespawnTimer.timeout
 	
 ##Extra info: https://stackoverflow.com/questions/76893256/how-to-get-the-3d-mouse-pos-in-godot-4-1 or the yt vid
@@ -108,7 +106,8 @@ func shoot_ray(event: InputEvent) -> Dictionary:
 
 func _on_burger_respawn_timer_timeout() -> void:
 	current_burger = Burger.new_burger_at_position(burger_spawn_point)
-	add_child(current_burger)
+	$BurgersRoot.add_child(current_burger)
+	current_burger.scale = Vector3.ZERO
 	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
 	tween.tween_property(current_burger, "scale", Vector3.ONE, 0.2)
 

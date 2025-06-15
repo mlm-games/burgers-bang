@@ -1,16 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7dv6l03f70pc"]
+[gd_scene load_steps=5 format=3 uid="uid://b7dv6l03f70pc"]
 
 [ext_resource type="Script" uid="uid://bvo1pjx7odgm5" path="res://scenes/burger_fillers.gd" id="1_61r1n"]
+[ext_resource type="PackedScene" uid="uid://hw5go7ivjm8j" path="res://assets/floating-patty.blend" id="2_csmda"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rm3cv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yuly8"]
 
-[node name="BurgerFillers" type="Area3D"]
+[node name="BurgerFiller" type="Area3D"]
 script = ExtResource("1_61r1n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rm3cv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_yuly8")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+unique_name_in_owner = true
+
+[node name="floating-patty" parent="." instance=ExtResource("2_csmda")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 1, 0.09, 1)
+light_energy = 0.575

@@ -112,7 +112,7 @@ stream_paused = true
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
-modulate = Color(1.68096, 0.651256, 0.702853, 1)
+modulate = Color(0.27344, 0.688728, 0.340279, 1)
 texture_filter = 1
 offset_left = -35.0
 offset_top = -70.0

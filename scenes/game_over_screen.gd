@@ -5,9 +5,9 @@ func _ready() -> void:
 	%BurgersThrownCountLabel.text = tr("Burgers Thrown Count: ") + str(GS.burgers_thrown_count)
 	%BurgersLandedCount.text = tr("Burgers Landed: ") + str(GS.burgers_landed)
 	%HighscoreLabel.text = tr("Highscore: ") + str(GS.highscore)
-	GS.burger_score = 0
-	GS.burgers_thrown_count = 0
-	GS.burgers_landed = 0
+	
+	GS.reset_for_new_round()
+	
 
 func _on_button_pressed() -> void:
 	Transitions.change_scene_with_transition("uid://dabcmqvvcej4o")
