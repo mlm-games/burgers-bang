@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://r10he81gcxd1"]
+
+[ext_resource type="Shader" uid="uid://bcu5vdlmjocga" path="res://assets/seamless.gdshader" id="1_4hy44"]
+[ext_resource type="PackedScene" uid="uid://cs2fl7pw33da1" path="res://scenes/anim-button.tscn" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://c54mgkw1uwdsa" path="res://scenes/menu.gd" id="1_ytr4m"]
+[ext_resource type="Theme" uid="uid://dvdl0g6ajpyuu" path="res://assets/main_theme.tres" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://b1xyoti4p4qu2" path="res://assets/burger.svg" id="3_mae5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ouk20"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytr4m"]
+shader = ExtResource("1_4hy44")
+shader_parameter/speed = 0.05
+shader_parameter/alpha = 1.0
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+shader_parameter/wave_amplitude = 0.01
+shader_parameter/wave_frequency = 5.0
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/pixel_snap = false
+shader_parameter/brightness = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.6, 0.6, 0.6, 0.345098)
+
+[node name="Menu" type="Control"]
+material = SubResource("ShaderMaterial_ouk20")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ytr4m")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.360784)
+material = SubResource("ShaderMaterial_ytr4m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_mae5d")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytr4m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="PlayButton" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_lti8b")]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ouk20")
+text = "Play"
+
+[node name="SettingsButton" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_lti8b")]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ouk20")
+text = "Settings"
+
+[node name="ExitButton" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_lti8b")]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ouk20")
+text = "Exit"
+
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="TitleLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 14.0
+offset_top = 50.0
+offset_right = 1149.0
+offset_bottom = 312.0
+pivot_offset = Vector2(567.5, 131)
+bbcode_enabled = true
+text = "[font_size=50][color=yellow]Burger Bang"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -19,7 +19,8 @@ config/icon="uid://y2hl84yxk0dt"
 
 Transitions="*res://autoloads/transitions.tscn"
 SettingsData="*res://addons/basic_settings_menu/settings_data.gd"
-LoadingScreen="*res://loading_screen.tscn"
+LoadingScreen="*res://scenes/loading_screen.tscn"
+GS="*res://autoloads/game_stats.gd"
 
 [debug]
 
@@ -33,6 +34,16 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/basic_settings_menu/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "red",
+"res://autoloads/": "yellow",
+"res://scenes/": "orange",
+"res://scripts/": "teal"
+}
+
 [global_group]
 
 Burgers=""
@@ -40,7 +51,7 @@ Burgers=""
 [gui]
 
 theme/custom="uid://dvdl0g6ajpyuu"
-theme/custom_font="res://rota_type_font.tres"
+theme/custom_font="res://assets/rota_type_font.tres"
 
 [internationalization]
 

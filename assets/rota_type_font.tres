@@ -1,0 +1,16 @@
+[gd_resource type="FontFile" load_steps=2 format=3 uid="uid://4crskjdmfms0"]
+
+[ext_resource type="FontFile" uid="uid://cy72ta5vovbam" path="res://assets/ext/mini-wakuwaku.otf" id="1_k3e5q"]
+
+[resource]
+fallbacks = Array[Font]([ExtResource("1_k3e5q")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0

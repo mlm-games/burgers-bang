@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brc1spnylr825"
+path="res://.godot/imported/the client.ogg-e5fae2a01d32610f4a7b950780cef42e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/ext/the client.ogg"
+dest_files=["res://.godot/imported/the client.ogg-e5fae2a01d32610f4a7b950780cef42e.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

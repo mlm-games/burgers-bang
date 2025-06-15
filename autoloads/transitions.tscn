@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c7j5jqynag4uw"]
 
 [ext_resource type="Script" uid="uid://b13rnxpo5kt4b" path="res://autoloads/transitions.gd" id="1_mlxrt"]
-[ext_resource type="Shader" uid="uid://bcu5vdlmjocga" path="res://seamless.gdshader" id="2_bdbvc"]
+[ext_resource type="Shader" uid="uid://bcu5vdlmjocga" path="res://assets/seamless.gdshader" id="2_bdbvc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7n6f"]
 shader = ExtResource("2_bdbvc")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dp42fom7cc3n0"]
 
-[ext_resource type="Theme" uid="uid://dvdl0g6ajpyuu" path="res://TempTheme.tres" id="1_3fk36"]
+[ext_resource type="Theme" uid="uid://dvdl0g6ajpyuu" path="res://assets/main_theme.tres" id="1_3fk36"]
 [ext_resource type="Script" uid="uid://dmkvyoeagnqhr" path="res://addons/basic_settings_menu/settings.gd" id="2_m8nmd"]
 [ext_resource type="PackedScene" uid="uid://d1kniiwptb48v" path="res://addons/basic_settings_menu/templates/option_container.tscn" id="3_3nbua"]
-[ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://anim_button.gd" id="3_i4dvr"]
+[ext_resource type="Script" uid="uid://cmo5qw3rubish" path="res://scenes/anim_button.gd" id="3_i4dvr"]
 [ext_resource type="PackedScene" uid="uid://bgjpgqx8f3igh" path="res://addons/basic_settings_menu/templates/int_container.tscn" id="4_3fk36"]
 [ext_resource type="PackedScene" uid="uid://cml6f2nq185vt" path="res://addons/basic_settings_menu/templates/boolean_container.tscn" id="5_2n80e"]
 [ext_resource type="PackedScene" uid="uid://b3c7l5vjqgd12" path="res://addons/basic_settings_menu/templates/slider_setting_container.tscn" id="6_hqw76"]
