@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://bq0gelfcjnqvg"]
+
+[ext_resource type="Script" uid="uid://dse3bicj0tht7" path="res://scenes/credits.gd" id="1_8gwij"]
+[ext_resource type="Shader" uid="uid://bcu5vdlmjocga" path="res://assets/seamless.gdshader" id="2_mah5v"]
+[ext_resource type="Texture2D" uid="uid://b1xyoti4p4qu2" path="res://assets/burger.svg" id="3_kyhnv"]
+[ext_resource type="PackedScene" uid="uid://cs2fl7pw33da1" path="res://scenes/anim-button.tscn" id="4_ooihk"]
+[ext_resource type="Theme" uid="uid://dvdl0g6ajpyuu" path="res://assets/main_theme.tres" id="5_ih6pn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ouk20"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytr4m"]
+shader = ExtResource("2_mah5v")
+shader_parameter/speed = 0.05
+shader_parameter/alpha = 0.08
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+shader_parameter/wave_amplitude = 0.01
+shader_parameter/wave_frequency = 5.0
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/pixel_snap = false
+shader_parameter/brightness = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.6, 0.6, 0.6, 0.345098)
+
+[node name="Credits" type="Control"]
+material = SubResource("ShaderMaterial_ouk20")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8gwij")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ytr4m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kyhnv")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytr4m")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Burger Model - Kenney art
+Tile textures - Ambientcg.org
+ 
+Music - https://opengameart.org/content/freelance
+Win sound: https://opengameart.org/content/positive-sound
+Font: https://www.freejapanesefont.com/mini-wakuwaku/
+UI sounds (other): https://opengameart.org/content/interface-beeps
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="ExitButton" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_ooihk")]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_ih6pn")
+text = "Close"
+
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="TitleLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -567.5
+offset_right = 567.5
+offset_bottom = 262.0
+grow_horizontal = 2
+pivot_offset = Vector2(567.5, 131)
+bbcode_enabled = true
+text = "[font_size=50][color=yellow]Credits"
+horizontal_alignment = 1
+vertical_alignment = 1

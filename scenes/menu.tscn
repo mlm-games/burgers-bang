@@ -81,6 +81,12 @@ layout_mode = 2
 theme = ExtResource("2_ouk20")
 text = "Settings"
 
+[node name="CreditsButton" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_lti8b")]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ouk20")
+text = "Credits"
+
 [node name="ExitButton" parent="PanelContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_lti8b")]
 unique_name_in_owner = true
 layout_mode = 2

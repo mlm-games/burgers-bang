@@ -1,20 +1,19 @@
 extends Control
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	if (OS.get_name() == "Android"):
-		%TitleLabel.scale *= 1.5
-		%PlayButton.scale *= 1.5
-		%SettingsButton.scale *= 1.5
-		%ExitButton.scale *= 1.5
-		#get_tree().root.set_content_scale_factor(2)
+		get_tree().root.set_content_scale_factor(2)
+
+func _ready() -> void:
 	%PlayButton.grab_focus()
 	
 	%PlayButton.pressed.connect(_on_play_button_pressed)
-	%SettingsButton.pressed.connect(_on_settings_button_pressed)
+	%SettingsButton.pressed.connect(Transitions.change_scene_with_transition.bind("uid://dp42fom7cc3n0"))
 	%ExitButton.pressed.connect(_on_exit_button_pressed)
+	%CreditsButton.pressed.connect(Transitions.change_scene_with_transition.bind("uid://bq0gelfcjnqvg"))
 
 func _on_play_button_pressed() -> void:
-	LoadingScreen.load_scene("uid://dabcmqvvcej4o")
+	Transitions.change_scene_with_transition_packed(preload("uid://dabcmqvvcej4o"))
 	self.hide()
 
 
@@ -23,7 +22,3 @@ func _on_exit_button_pressed() -> void:
 	Transitions.transition()
 	await Transitions.transition_player.animation_finished
 	get_tree().quit()
-
-
-func _on_settings_button_pressed() -> void:
-	Transitions.change_scene_with_transition("uid://dp42fom7cc3n0")

@@ -111,12 +111,11 @@ script = ExtResource("1_oe8ih")
 environment = SubResource("Environment_smepj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 11, -11)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, -0.274536, -9.48781)
+visible = false
 light_color = Color(1, 0.956863, 0.839216, 1)
-light_energy = 0.067
 shadow_enabled = true
 shadow_blur = 1.5
-directional_shadow_max_distance = 50.0
 
 [node name="InitialBurger" parent="." instance=ExtResource("1_n4psk")]
 
@@ -272,6 +271,11 @@ wait_time = 3.0
 [node name="FillerSpawnPosition" type="Marker3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66096, 0, 2.7009)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.25, -9.63225e-08, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, -1.54972e-06, -0.207711, -5.41695)
+light_color = Color(0.7055, 0.69, 1, 1)
+omni_range = 25.25
 
 [connection signal="timeout" from="BurgerRespawnTimer" to="." method="_on_burger_respawn_timer_timeout"]
 [connection signal="body_entered" from="MouthPortal" to="." method="_on_mouth_body_entered"]
