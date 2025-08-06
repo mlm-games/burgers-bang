@@ -1,5 +1,3 @@
-## v0.1.1
-
 - Add credits scene, reduce unnessasry git changes, size burger fillers properly
 - add floating patties for difficulty and higher score opp.
 - future rigidbodies, and looks smelly
@@ -35,8 +33,3 @@
 - add initial test implementation for throwing of burger
 - add burger recognition
 - initial commit
-
-
-## v1.0.0
-
-- Initial release for game jam (need more testing)
