@@ -112,10 +112,9 @@ jobs:
           EOF
       
       - name: Publish to AUR
-        uses: KSXGitHub/github-actions-deploy-aur@master
+        uses: mlm-games/aur-deploy-action@master
         with:
-          pkgname: burgers-bang-bin
-          pkgbuild: aur-package/PKGBUILD
+          asset_dir: ./aur-package
           commit_username: MLM-stuff
           commit_email: gfxoxinzh@mozmail.com
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
