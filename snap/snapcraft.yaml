@@ -1,0 +1,51 @@
+name: burgers-bang
+base: core22
+version: '0.12.2'
+summary: A high-score based burger thrower
+description: |
+  A high-score based burger thrower
+
+grade: stable
+confinement: strict
+
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+
+apps:
+  burgers-bang:
+    command: burgers-bang
+    extensions: [gnome]
+    plugs:
+      - home
+      - removable-media
+      - network
+      - opengl
+      - x11
+      - wayland
+      - desktop
+      - desktop-legacy
+      - unity7
+    desktop: burgers-bang.desktop
+
+parts:
+  imagot:
+    plugin: dump
+    source: ./builds/
+    source-type: local
+    stage-packages:
+      - libglu1-mesa
+      - libxcursor1
+      - libxinerama1
+      - libxrandr2
+      - libxi6
+      - libpulse0
+    override-build: |
+      craftctl default
+      install -Dm755 "$CRAFT_PART_SRC/burgers-bang" "$CRAFT_PART_INSTALL/burgers-bang"
+      install -Dm644 "$CRAFT_PROJECT_DIR/gui/burgers-bang.desktop" "$CRAFT_PART_INSTALL/burgers-bang.desktop"
+      chmod +x "$CRAFT_PART_INSTALL/burgers-bang"
+
+layout:
+  /usr/share/burgers-bang:
+    bind: $SNAP/usr/share/burgers-bang
