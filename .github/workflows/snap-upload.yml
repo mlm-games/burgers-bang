@@ -33,9 +33,9 @@ jobs:
         run: |
           mkdir -p snap/builds
           
-          mkdir -p snap/gui
-          cp others/flathub/io.github.mlm_games.burgers-bang.desktop snap/gui/burgers-bang.desktop
-          cp fastlane/metadata/android/en-US/icon.png snap/gui/icon.png
+          mkdir -p others/snap/snap/gui
+          cp others/flathub/io.github.mlm_games.burgers-bang.desktop others/snap/snap/gui/burgers-bang.desktop
+          cp fastlane/metadata/android/en-US/icon.png others/snap/snap/gui/icon.png
 
           set -e
           echo "Fetch 'burgers-bang.x86_64'..."
